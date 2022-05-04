@@ -5,7 +5,7 @@
   tasks: 
   - name: i want to install apache2
     apt:
-      name: "{{mywebpackubantu}}"
+      name: "{{ mywebpackubantu }}"
       state: present
     when: ansible_os_family =="Debian"
 
@@ -20,3 +20,9 @@
       name: httd
       state: present
     when: ansible_os_family =="RedHAT"
+     
+  - name: i want to start webserver
+    service: 
+       name: "{{ mywebpackonredhat }}"
+       state: present
+    when: ansible_os_family =="RedHat"
