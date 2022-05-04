@@ -1,0 +1,22 @@
+---
+- hosts: mywebservers
+  become: yes
+  gather_fact: yes
+  tasks: 
+  - name: i want to install apache2
+    apt:
+      name: "{{mywebpackubantu}}"
+      state: present
+    when: ansible_os_family =="Debian"
+
+  - name: i want to start apache2
+    service: 
+      name: apache2
+      state: restarted
+    when: ansible_os_family =="Debian"
+
+  - name: i want to install webserver on RedHat nodes
+    yum:
+      name: httd
+      state: present
+    when: ansible_os_family =="RedHAT"
