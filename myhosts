@@ -1,0 +1,5 @@
+---
+[mywebservers: vars]
+myvars- value
+mywebpackonubuntu= --apache2
+mywebpackonrehat=- httpd
